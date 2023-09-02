@@ -1,3 +1,8 @@
+//=================================
+// Copyright (c) Coalition of Good-Hearted Engineers
+// Free to use to bring order in your workplace
+//===============================
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +26,7 @@ namespace Tarteeb.Api
         {
             services.AddControllers();
             services.AddDbContext<StorageBroker>();
+            services.AddTransient<IStorageBroker, StorageBroker>();
 
             services.AddSwaggerGen(c =>
             {
