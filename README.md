@@ -1,3 +1,3 @@
 # Tarteeb
-A standart compliant task management software
+A Standart-compliant task management software
 
