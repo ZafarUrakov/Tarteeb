@@ -13,6 +13,8 @@ namespace Tarteeb.Api.Models.Tasks
         public string Title { get; set; }
         public string Description { get; set; }
         public Guid? AssigneeId { get; set; }
+        public Priority Priority { get; set; }
+        public DateTimeOffset Deadline { get; set; }
         public TaskStatus Status { get; set; }
         public DateTimeOffset CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set;}
