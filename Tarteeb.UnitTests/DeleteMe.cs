@@ -3,6 +3,8 @@
 // Free to use to bring order in your workplace
 //===============================
 
+using Xunit;
+
 namespace Tarteeb.UnitTests
 {
     public class DeleteMe
@@ -10,6 +12,6 @@ namespace Tarteeb.UnitTests
         bool value = true;
 
         [Fact]
-        public void ShuldBeTrue() => Assert.True(true);
+        public void ShouldBeTrue() => Assert.True(true);
     }
 }
