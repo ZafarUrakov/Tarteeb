@@ -17,7 +17,7 @@ namespace Tarteeb.Api.Brokers.Storages
         public async ValueTask<Local.Task> InsertTaskAsync(Local.Task task) =>
             await InsertAsync(task);
 
-        public IQueryable<Local.Task> SelectAllTask() =>
-            SelectAllAsync<Local.Task>();
+        public IQueryable<Local.Task> SelectAllTasks() =>
+        SelectAll<Local.Task>();
     }
 }
