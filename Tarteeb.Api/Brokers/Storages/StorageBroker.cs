@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Tarteeb.Api.Brokers.Storages
 {
-    public partial class StorageBroker : EFxceptionsContext,IStorageBroker
+    public partial class StorageBroker : EFxceptionsContext, IStorageBroker
     {
         private readonly IConfiguration _configuration;
 
@@ -21,34 +21,19 @@ namespace Tarteeb.Api.Brokers.Storages
             this.Database.Migrate();
         }
 
-        public async ValueTask<T> InsertAsync<T>(T @object)
+        private async ValueTask<T> InsertAsync<T>(T @object)
         {
             var broker = new StorageBroker(this._configuration);
             broker.Entry(@object).State = EntityState.Added;
             await broker.SaveChangesAsync();
             return @object;
-
         }
 
-        public async ValueTask<T> DeleteAsync<T>(T @object)
+        private IQueryable<T> SelectAll<T>() where T : class
         {
             var broker = new StorageBroker(this._configuration);
-            broker.Entry(@object).State = EntityState.Deleted;
-            await broker.SaveChangesAsync();
-            return @object;
-
-        }
-
-        public IQueryable<T> SelectAllAsync<T>() where T : class
-        {
-            var broker = new StorageBroker(this._configuration);
+            
             return broker.Set<T>();
-        }
-
-        public async ValueTask<T> SelectByIdAsync<T>(params object[] objectIds) where T : class
-        {
-            var broker = new StorageBroker(this._configuration);
-            return await broker.FindAsync<T>(objectIds);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
