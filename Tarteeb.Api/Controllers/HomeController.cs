@@ -3,11 +3,8 @@
 // Free to use to bring order in your workplace
 //===============================
 
-using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Tarteeb.Api.Brokers.Storages;
-using Local = Tarteeb.Api.Models.Tasks;
 
 namespace Tarteeb.Api.Controllers
 {
@@ -22,17 +19,5 @@ namespace Tarteeb.Api.Controllers
 
         [HttpGet]
         public ActionResult<string> GetMessage() => "Tarteeb is Working";
-
-        [HttpPost]
-        public async ValueTask<ActionResult> PostTaskAsync()
-        {
-            var task = new Local.Task
-            {
-                Id = Guid.NewGuid()
-            };
-            var addedTask = await this.storageBroker.InsertTaskAsync(task);
-            
-            return Ok(addedTask);
-        }
     }
 }
