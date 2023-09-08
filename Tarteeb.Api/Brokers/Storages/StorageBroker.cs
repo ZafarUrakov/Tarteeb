@@ -26,19 +26,29 @@ namespace Tarteeb.Api.Brokers.Storages
             var broker = new StorageBroker(this._configuration);
             broker.Entry(@object).State = EntityState.Added;
             await broker.SaveChangesAsync();
+
             return @object;
         }
 
         private IQueryable<T> SelectAll<T>() where T : class
         {
             var broker = new StorageBroker(this._configuration);
-            
+
             return broker.Set<T>();
+        }
+
+        private async ValueTask<T> DeleteAsync<T>(T @object)
+        {
+            var broker = new StorageBroker(this._configuration);
+            broker.Entry(@object).State = EntityState.Deleted;
+            await broker.SaveChangesAsync();
+
+            return @object;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = 
+            string connectionString =
                 this._configuration.GetConnectionString(name: "DefaultConnection");
 
             optionsBuilder.UseSqlServer(connectionString);

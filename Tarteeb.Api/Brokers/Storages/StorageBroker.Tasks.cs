@@ -3,9 +3,9 @@
 // Free to use to bring order in your workplace
 //===============================
 
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Local = Tarteeb.Api.Models.Tasks;
 
 namespace Tarteeb.Api.Brokers.Storages
@@ -18,6 +18,9 @@ namespace Tarteeb.Api.Brokers.Storages
             await InsertAsync(task);
 
         public IQueryable<Local.Task> SelectAllTasks() =>
-        SelectAll<Local.Task>();
+            SelectAll<Local.Task>();
+
+        public async ValueTask<Local.Task> DeleteTaskAsync(Local.Task task) =>
+            await DeleteAsync<Local.Task>(task);
     }
 }
