@@ -1,4 +1,4 @@
-name: Build & Test CashOverflow
+name: Build & Test Tarteeb
 on:
   push:
     branches:
