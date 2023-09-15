@@ -3,9 +3,9 @@
 // Free to use to bring order in your workplace
 //===============================
 
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Tarteeb.Api.Brokers.Storages;
 using Local = Tarteeb.Api.Models.Tasks;
 
@@ -31,7 +31,7 @@ namespace Tarteeb.Api.Controllers
                 Id = Guid.NewGuid()
             };
             var addedTask = await this.storageBroker.InsertTaskAsync(task);
-            
+
             return Ok(addedTask);
         }
     }

@@ -3,9 +3,8 @@
 // Free to use to bring order in your workplace
 //===============================
 
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 using Local = Tarteeb.Api.Models.Tasks;
 
 namespace Tarteeb.Api.Brokers.Storages
@@ -14,10 +13,13 @@ namespace Tarteeb.Api.Brokers.Storages
     {
         public DbSet<Local.Task> Tasks { get; set; }
 
-        public async ValueTask<Local.Task> InsertTaskAsync(Local.Task task) =>
-            await InsertAsync(task);
+        public async ValueTask<Local.Task> InsertTaskAsync(Local.Task task)
+        {
+            var broker = new StorageBroker(this._configuration);
+            await broker.Tasks.AddAsync(task);
+            await broker.SaveChangesAsync();
 
-        public IQueryable<Local.Task> SelectAllTasks() =>
-        SelectAll<Local.Task>();
+            return task;
+        }
     }
 }
