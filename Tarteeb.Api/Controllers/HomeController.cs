@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using Tarteeb.Api.Brokers.Storages;
-using Local = Tarteeb.Api.Models.Tasks;
 
 namespace Tarteeb.Api.Controllers
 {

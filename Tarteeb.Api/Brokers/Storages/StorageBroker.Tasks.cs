@@ -4,6 +4,7 @@
 //===============================
 
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 using Local = Tarteeb.Api.Models.Tasks;
 
@@ -21,5 +22,10 @@ namespace Tarteeb.Api.Brokers.Storages
 
             return task;
         }
+        public IQueryable<Local.Task> SelectAllTasks() =>
+            SelectAll<Local.Task>();
+
+        public async ValueTask<Local.Task> DeleteTaskAsync(Local.Task task) =>
+            await DeleteAsync<Local.Task>(task);
     }
 }
