@@ -10,7 +10,7 @@ using ADotNet.Models.Pipelines.GithubPipelines.DotNets.Tasks.SetupDotNetTaskV1s;
 
 var githubPipeline = new GithubPipeline
 {
-    Name = "Build & Test CashOverflow",
+    Name = "Build & Test Tarteeb",
 
     OnEvents = new Events
     {
