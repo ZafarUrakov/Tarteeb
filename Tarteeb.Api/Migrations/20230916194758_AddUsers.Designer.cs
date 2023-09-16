@@ -12,7 +12,7 @@ using Tarteeb.Api.Brokers.Storages;
 namespace Tarteeb.Api.Migrations
 {
     [DbContext(typeof(StorageBroker))]
-    [Migration("20230903173132_AddUsers")]
+    [Migration("20230916194758_AddUsers")]
     partial class AddUsers
     {
         /// <inheritdoc />
@@ -37,11 +37,17 @@ namespace Tarteeb.Api.Migrations
                     b.Property<DateTimeOffset>("CreatedDate")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<DateTimeOffset>("Deadline")
+                        .HasColumnType("datetimeoffset");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("GreatedUserId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
