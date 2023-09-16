@@ -42,6 +42,7 @@ namespace Tarteeb.Api.Brokers.Storages
             var broker = new StorageBroker(this._configuration);
             broker.Entry(@object).State = EntityState.Modified;
             await broker.SaveChangesAsync();
+            
             return @object;
         }
 
