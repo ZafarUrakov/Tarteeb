@@ -20,6 +20,9 @@ namespace Tarteeb.Api.Brokers.Storages
         public IQueryable<Local.Task> SelectAllTasks() =>
             SelectAll<Local.Task>();
 
+        public async ValueTask<Local.Task> UpdateTaskAsync(Local.Task task) =>
+            await UpdateAsync(task);
+
         public async ValueTask<Local.Task> DeleteTaskAsync(Local.Task task) =>
             await DeleteAsync<Local.Task>(task);
     }

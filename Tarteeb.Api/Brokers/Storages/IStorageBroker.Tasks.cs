@@ -12,5 +12,6 @@ public partial interface IStorageBroker_Tasks
 {
     ValueTask<Local.Task> InsertTaskAsync(Local.Task task);
     IQueryable<Local.Task> SelectAllTasks();
+    ValueTask<Local.Task> UpdateTaskAsync(Local.Task student);
     ValueTask<Local.Task> DeleteTaskAsync(Local.Task task);
 }
