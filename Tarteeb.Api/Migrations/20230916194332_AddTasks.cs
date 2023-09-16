@@ -3,15 +3,15 @@
 // Free to use to bring order in your workplace
 //===============================
 
-using Microsoft.EntityFrameworkCore.Migrations;
 using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Tarteeb.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class AddUsers : Migration
+    public partial class AddTasks : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,6 +24,8 @@ namespace Tarteeb.Api.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AssigneeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Priority = table.Column<int>(type: "int", nullable: false),
+                    Deadline = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),

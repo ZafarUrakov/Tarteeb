@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Tarteeb.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class AddTasks : Migration
+    public partial class AddTeams : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
