@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Tarteeb.Api.Models.Teams;
 
@@ -8,5 +9,6 @@ namespace Tarteeb.Api.Brokers.Storages
     {
         ValueTask<Team> InsertTeamAsync(Team team);
         IQueryable<Team> SelectAllTeam();
+        ValueTask<Team> SelectTeamById(Guid id);
     }
 }

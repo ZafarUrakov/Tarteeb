@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Tarteeb.Api.Models.Teams;
 using Tarteeb.Api.Brokers.Storages;
 using System.Linq;
+using System;
 
 namespace Tarteeb.Api.Brokers.Storages
 {
@@ -19,5 +20,7 @@ namespace Tarteeb.Api.Brokers.Storages
             await InsertAsync(team);
         public IQueryable<Team> SelectAllTeam() =>
             SelectAll<Team>();
+        public async ValueTask<Team> SelecTeamById(Guid id) =>
+            await SelectAsync<Team>(id);
     }
 }
