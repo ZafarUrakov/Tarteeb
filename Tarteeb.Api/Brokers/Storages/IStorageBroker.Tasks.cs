@@ -12,7 +12,7 @@ namespace Tarteeb.Api.Brokers.Storages;
 public partial interface IStorageBroker_Tasks
 {
     ValueTask<Local.Task> InsertTaskAsync(Local.Task task);
-    IQueryable<Local.Task> SelectAllTasks();
+    IQueryable<Local.Task> SelectAllTask();
     ValueTask<Local.Task> SelectTaskById(Guid id);
     ValueTask<Local.Task> UpdateTaskAsync(Local.Task student);
     ValueTask<Local.Task> DeleteTaskAsync(Local.Task task);
