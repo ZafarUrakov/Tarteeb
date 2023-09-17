@@ -4,11 +4,10 @@
 //===============================
 
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Tarteeb.Api.Models.Teams;
-using Tarteeb.Api.Brokers.Storages;
-using System.Linq;
-using System;
 
 namespace Tarteeb.Api.Brokers.Storages
 {
@@ -22,5 +21,7 @@ namespace Tarteeb.Api.Brokers.Storages
             SelectAll<Team>();
         public async ValueTask<Team> SelecTeamById(Guid id) =>
             await SelectAsync<Team>(id);
+        public async ValueTask<Team> UpdateTeamAsync(Team team) =>
+            await UpdateAsync(team);
     }
 }
