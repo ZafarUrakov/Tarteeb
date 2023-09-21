@@ -4,12 +4,18 @@
 //===============================
 
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
+using System;
 using Tarteeb.Models.Users;
 
-namespace Tarteeb.Brokers.Storages
+namespace Tarteeb.Api.Brokers.Storages
 {
     public partial class StorageBroker
     {
-        DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
+
+        public async ValueTask<User> InsertUserAsync(User user) =>
+            await InsertAsync(user);
     }
 }
