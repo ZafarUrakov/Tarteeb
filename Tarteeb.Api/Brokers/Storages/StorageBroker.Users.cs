@@ -17,5 +17,9 @@ namespace Tarteeb.Api.Brokers.Storages
 
         public async ValueTask<User> InsertUserAsync(User user) =>
             await InsertAsync(user);
+        public IQueryable<User> SelectAllUser() =>
+            SelectAll<User>();
+        public async ValueTask<User> SelecUserById(Guid id) =>
+            await SelectAsync<User>(id);
     }
 }
